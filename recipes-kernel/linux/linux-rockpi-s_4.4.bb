@@ -4,6 +4,8 @@ inherit kernel
 inherit python3native
 require recipes-kernel/linux/linux-yocto.inc
 
+export EXTRA_CFLAGS = "${CFLAGS}"
+
 # We need mkimage for the overlays
 DEPENDS += "openssl-native u-boot-mkimage-radxa-native"
 

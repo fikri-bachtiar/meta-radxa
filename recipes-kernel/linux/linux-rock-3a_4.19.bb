@@ -42,4 +42,4 @@ do_deploy:append() {
 	install -m 644 ${WORKDIR}/linux-rock_3a_rk3568-standard-build/arch/arm64/boot/dts/rockchip/overlay/* ${DEPLOYDIR}/overlays
 }
 PACKAGES += "${PN}-overlays"
-FILES_${PN}-overlays = "/boot/overlays/*"
+FILES:${PN}-overlays = "/boot/overlays/*"

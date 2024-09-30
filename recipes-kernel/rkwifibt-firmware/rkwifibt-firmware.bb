@@ -19,28 +19,28 @@ S = "${WORKDIR}/git"
 inherit allarch deploy
 
 do_install() {
-	install -d ${D}/lib/firmware/brcm/
+	install -d ${D}/${nonarch_base_libdir}/firmware/brcm/
 	install -m 0644 ${S}/firmware/broadcom/AW-NB197/bt/BCM4343A1_001.002.009.1008.1024.hcd \
-		${D}/lib/firmware/brcm/bcm43438a1.hcd
+		${D}/${nonarch_base_libdir}/firmware/brcm/bcm43438a1.hcd
 	install -m 0644 ${S}/firmware/broadcom/AP6236/*/* \
-		-t ${D}/lib/firmware/brcm/
+		-t ${D}/${nonarch_base_libdir}/firmware/brcm/
 	install -m 0644 ${S}/firmware/broadcom/AP6255/*/* \
-		-t ${D}/lib/firmware/brcm/
+		-t ${D}/${nonarch_base_libdir}/firmware/brcm/
 	install -m 0644 ${S}/firmware/broadcom/AP6256/bt/* \
-		-t ${D}/lib/firmware/brcm/
+		-t ${D}/${nonarch_base_libdir}/firmware/brcm/
 	install -m 0644 ${S}/firmware/broadcom/AP6256/wifi/fw_bcm43456c5_ag.bin \
-		${D}/lib/firmware/brcm/brcmfmac43456-sdio.bin
+		${D}/${nonarch_base_libdir}/firmware/brcm/brcmfmac43456-sdio.bin
 	install -m 0644 ${S}/firmware/broadcom/AP6256/wifi/nvram_ap6256.txt \
-		${D}/lib/firmware/brcm/brcmfmac43456-sdio.txt
+		${D}/${nonarch_base_libdir}/firmware/brcm/brcmfmac43456-sdio.txt
 	install -m 0644 ${S}/firmware/broadcom/AP6356/*/* \
-		-t ${D}/lib/firmware/brcm/
+		-t ${D}/${nonarch_base_libdir}/firmware/brcm/
 	install -m 0644 ${S}/firmware/broadcom/AP6398S/*/* \
-		-t ${D}/lib/firmware/brcm/
+		-t ${D}/${nonarch_base_libdir}/firmware/brcm/
 
 	# let's use the firmware for AP6212 from Infineon / Cypress
-	install -m 0644 ${S}/firmware/cypress/wifi/cyfmac43430-sdio.bin ${D}/lib/firmware/brcm/brcmfmac43430-sdio.bin
-	install -m 0644 ${S}/firmware/cypress/wifi/cyfmac43430-sdio.txt ${D}/lib/firmware/brcm/brcmfmac43430-sdio.txt
-	install -m 0644 ${S}/firmware/cypress/wifi/cyfmac43430-sdio.clm_blob ${D}/lib/firmware/brcm/brcmfmac43430-sdio.clm_blob
+	install -m 0644 ${S}/firmware/cypress/wifi/cyfmac43430-sdio.bin ${D}/${nonarch_base_libdir}/firmware/brcm/brcmfmac43430-sdio.bin
+	install -m 0644 ${S}/firmware/cypress/wifi/cyfmac43430-sdio.txt ${D}/${nonarch_base_libdir}/firmware/brcm/brcmfmac43430-sdio.txt
+	install -m 0644 ${S}/firmware/cypress/wifi/cyfmac43430-sdio.clm_blob ${D}/${nonarch_base_libdir}/firmware/brcm/brcmfmac43430-sdio.clm_blob
 
 	install -d ${D}${base_libdir}/firmware/rtlbt/
 	install -m 0644 ${S}/realtek/RTL8723DS/* -t ${D}${base_libdir}/firmware/rtlbt/
@@ -67,57 +67,57 @@ PACKAGES =+ " \
 "
 
 FILES:${PN}-ap6212a1-wifi = " \
-	lib/firmware/brcm/brcmfmac43430-sdio* \
+	${nonarch_base_libdir}/firmware/brcm/brcmfmac43430-sdio* \
 "
 
 FILES:${PN}-ap6212a1-bt = " \
-	lib/firmware/brcm/bcm43438a1.hcd \
+	${nonarch_base_libdir}/firmware/brcm/bcm43438a1.hcd \
 "
 
 FILES:${PN}-ap6236-wifi = " \
-	lib/firmware/brcm/fw_bcm43436b0.bin \
-	lib/firmware/brcm/nvram_ap6236.txt \
+	${nonarch_base_libdir}/firmware/brcm/fw_bcm43436b0.bin \
+	${nonarch_base_libdir}/firmware/brcm/nvram_ap6236.txt \
 "
 
 FILES:${PN}-ap6236-bt = " \
-	lib/firmware/brcm/BCM4343B0.hcd \
+	${nonarch_base_libdir}/firmware/brcm/BCM4343B0.hcd \
 "
 
 FILES:${PN}-ap6255-wifi = " \
-	lib/firmware/brcm/fw_bcm43455c0_ag.bin \
-	lib/firmware/brcm/fw_bcm43455c0_ag_p2p.bin \
-	lib/firmware/brcm/nvram_ap6255.txt \
+	${nonarch_base_libdir}/firmware/brcm/fw_bcm43455c0_ag.bin \
+	${nonarch_base_libdir}/firmware/brcm/fw_bcm43455c0_ag_p2p.bin \
+	${nonarch_base_libdir}/firmware/brcm/nvram_ap6255.txt \
 "
 
 FILES:${PN}-ap6255-bt = " \
-	lib/firmware/brcm/BCM4345C0.hcd \
+	${nonarch_base_libdir}/firmware/brcm/BCM4345C0.hcd \
 "
 
 FILES:${PN}-ap6256-wifi = " \
-	lib/firmware/brcm/brcmfmac43456-sdio* \
+	${nonarch_base_libdir}/firmware/brcm/brcmfmac43456-sdio* \
 "
 
 FILES:${PN}-ap6256-bt = " \
-	lib/firmware/brcm/BCM4345C5.hcd \
+	${nonarch_base_libdir}/firmware/brcm/BCM4345C5.hcd \
 "
 
 FILES:${PN}-ap6356-wifi = " \
-	lib/firmware/brcm/fw_bcm4356a2_ag.bin \
-	lib/firmware/brcm/nvram_ap6356.txt \
+	${nonarch_base_libdir}/firmware/brcm/fw_bcm4356a2_ag.bin \
+	${nonarch_base_libdir}/firmware/brcm/nvram_ap6356.txt \
 "
 
 FILES:${PN}-ap6356-bt = " \
-	lib/firmware/brcm/BCM4356A2.hcd \
+	${nonarch_base_libdir}/firmware/brcm/BCM4356A2.hcd \
 "
 
 FILES:${PN}-ap6398s-wifi = " \
-	lib/firmware/brcm/fw_bcm4359c0_ag.bin \
-	lib/firmware/brcm/fw_bcm4359c0_ag_p2p.bin \
-	lib/firmware/brcm/nvram_ap6398s.txt \
+	${nonarch_base_libdir}/firmware/brcm/fw_bcm4359c0_ag.bin \
+	${nonarch_base_libdir}/firmware/brcm/fw_bcm4359c0_ag_p2p.bin \
+	${nonarch_base_libdir}/firmware/brcm/nvram_ap6398s.txt \
 "
 
 FILES:${PN}-ap6398s-bt = " \
-	lib/firmware/brcm/BCM4359C0.hcd \
+	${nonarch_base_libdir}/firmware/brcm/BCM4359C0.hcd \
 "
 
 FILES:${PN}-rtl8723ds-bt = " \

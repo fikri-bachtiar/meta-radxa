@@ -63,7 +63,7 @@ do_deploy:append() {
 }
 
 PACKAGE_BEFORE_PN = "${PN}-scripts"
-FILES_${PN}-scripts = " \
+FILES:${PN}-scripts = " \
 	/boot/boot.scr \
 	/boot/uEnv.txt \
 "

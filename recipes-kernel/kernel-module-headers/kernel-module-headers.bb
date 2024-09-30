@@ -64,7 +64,7 @@ do_compile[depends] += "virtual/kernel:do_deploy virtual/kernel:do_patch"
 addtask deploy before do_package after do_install
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-FILES_${PN} += "/usr/src/*"
+FILES:${PN} += "/usr/src/*"
 
 # Tools inside the headers package are slightly special.
 # Skip some QA checks. We are interested in the arch check only.

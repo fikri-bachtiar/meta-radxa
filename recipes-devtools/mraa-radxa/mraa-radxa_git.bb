@@ -28,9 +28,9 @@ EXTRA_OECMAKE:append = " -DINSTALLTOOLS:BOOL=ON -DFIRMATA=ON -DCMAKE_SKIP_RPATH=
 # Prepend mraa-utils to make sure bindir ends up in there
 PACKAGES =+ "${PN}-utils"
 
-FILES_${PN}-doc += "${datadir}/mraa/examples/"
+FILES:${PN}-doc += "${datadir}/mraa/examples/"
 
-FILES_${PN}-utils = "${bindir}/"
+FILES:${PN}-utils = "${bindir}/"
 
 PACKAGECONFIG ??= "python"
 

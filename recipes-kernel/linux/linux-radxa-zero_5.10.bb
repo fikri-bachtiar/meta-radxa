@@ -40,4 +40,4 @@ do_deploy:append() {
 }
 
 PACKAGES += "${PN}-overlays"
-FILES_${PN}-overlays = "/boot/overlays/*"
+FILES:${PN}-overlays = "/boot/overlays/*"

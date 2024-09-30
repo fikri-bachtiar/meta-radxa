@@ -35,11 +35,11 @@ do_install() {
 	install -m 0644 "${S}/README.md" ${D}/${docdir}/create_ap/README.md
 }
 
-FILES_${PN} += "\
+FILES:${PN} += "\
 	${datadir}/bash-completion/* \
 	"
 
-SYSTEMD_SERVICE_${PN} = "create_ap.service"
+SYSTEMD_SERVICE:${PN} = "create_ap.service"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

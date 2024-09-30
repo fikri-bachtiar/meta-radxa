@@ -23,4 +23,4 @@ do_install() {
 	install -m 0755 ${WORKDIR}/resize-helper ${D}${sbindir}
 }
 
-SYSTEMD_SERVICE_${PN} = "resize-helper.service"
+SYSTEMD_SERVICE:${PN} = "resize-helper.service"

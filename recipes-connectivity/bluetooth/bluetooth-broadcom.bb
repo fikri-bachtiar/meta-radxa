@@ -27,7 +27,7 @@ do_install() {
 	install -m 0755 ${WORKDIR}/broadcom-bluetooth/brcm-btfw-load.sh ${D}${bindir}/brcm-btfw-load.sh
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
   /lib/udev/rules.d/99-brcm-btfw-load.rules \
   /lib/systemd/system/brcm-btfw-load@.service \
   /usr/bin/brcm-btfw-load.sh \
