@@ -40,7 +40,8 @@ do_patch:append() {
 	done
 }
 
+# modify the source cause no folder standard-build
 do_deploy:append() {
 	install -d ${DEPLOYDIR}/overlays
-	install -m 644 ${WORKDIR}/linux-rockpi_s_rk3308-standard-build/arch/arm64/boot/dts/rockchip/overlay/* ${DEPLOYDIR}/overlays
+	install -m 644 ${WORKDIR}/linux-rockpi-s-4.4.143/arch/arm64/boot/dts/rockchip/overlay/* ${DEPLOYDIR}/overlays
 }
