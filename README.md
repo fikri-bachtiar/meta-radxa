@@ -31,12 +31,12 @@ The OpenEmbedded/Yocto Project BSP layer for the Radxa machines
 
 The meta-radxa layer depends on:
 
-	URI: git://git.yoctoproject.org/poky
-	branch: dunfell
+	URI: https://git.yoctoproject.org/poky
+	branch: scarthgap
     
-	URI: git://git.openembedded.org/meta-openembedded
+	URI: https://git.openembedded.org/meta-openembedded
 	layers: meta-oe meta-networking meta-python meta-multimedia meta-gnome meta-xfce
-	branch: dunfell
+	branch: scarthgap
 
 ## List of Radxa Boards supported <a name="list_of_boards_supported"></a>
 
@@ -57,11 +57,11 @@ Fetch the source using the commands given below:
 
 <pre><code>~ $ mkdir yocto
 ~ $ cd yocto
-~/yocto $ git clone --depth 1 git://git.yoctoproject.org/poky -b dunfell
+~/yocto $ git clone --depth 1 https://git.yoctoproject.org/poky -b scarthgap
 ~/yocto $ cd poky
-~/yocto/poky $ git clone --depth 1 git://git.openembedded.org/meta-openembedded.git -b dunfell
-~/yocto/poky $ git clone --depth 1 https://github.com/radxa/meta-radxa.git -b dunfell
-~/yocto.poky $ git clone --depth 1 https://github.com/YoeDistro/meta-python2.git -b dunfell
+~/yocto/poky $ git clone --depth 1 https://git.openembedded.org/meta-openembedded.git -b scarthgap
+~/yocto/poky $ git clone --depth 1 https://github.com/radxa/meta-radxa.git -b scarthgap
+~/yocto.poky $ git clone --depth 1 https://github.com/YoeDistro/meta-python2.git -b scarthgap
 </code></pre>
 
 ### Step 2: Setting up the Environment <a name="setup"></a>

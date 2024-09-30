@@ -4,10 +4,10 @@ inherit image_types
 
 # Use an uncompressed ext4 by default as rootfs
 IMG_ROOTFS_TYPE = "ext4"
-IMG_ROOTFS = "${IMGDEPLOYDIR}/${IMAGE_BASENAME}-${MACHINE}.${IMG_ROOTFS_TYPE}"
+IMG_ROOTFS = "${IMGDEPLOYDIR}/${IMAGE_BASENAME}-${MACHINE}.rootfs.${IMG_ROOTFS_TYPE}"
 
 # This image depends on the rootfs image
-IMAGE_TYPEDEP_rockchip-radxa-gpt-img = "${IMG_ROOTFS_TYPE}"
+IMAGE_TYPEDEP:rockchip-radxa-gpt-img = "${IMG_ROOTFS_TYPE}"
 
 GPTIMG = "${IMAGE_BASENAME}-${MACHINE}-gpt.img"
 BOOT_IMG = "${IMAGE_BASENAME}-${MACHINE}-boot.img"
@@ -63,15 +63,15 @@ do_image_rockchip_radxa_gpt_img[depends] += " \
 	virtual/kernel:do_deploy \
 	virtual/bootloader:do_deploy"
 
-PER_CHIP_IMG_GENERATION_COMMAND_px30 = "generate_px30_loader_image"
-PER_CHIP_IMG_GENERATION_COMMAND_rk3308 = "generate_rk3308_loader_image"
-PER_CHIP_IMG_GENERATION_COMMAND_rk3328 = "generate_rk3328_loader_image"
-PER_CHIP_IMG_GENERATION_COMMAND_rk3399 = "generate_rk3399_loader_image"
-PER_CHIP_IMG_GENERATION_COMMAND_rk3399pro = "generate_rk3399pro_loader_image"
-PER_CHIP_IMG_GENERATION_COMMAND_rk3566 = "generate_rk3566_loader_image"
-PER_CHIP_IMG_GENERATION_COMMAND_rk3568 = "generate_rk3568_loader_image"
+PER_CHIP_IMG_GENERATION_COMMAND:px30 = "generate_px30_loader_image"
+PER_CHIP_IMG_GENERATION_COMMAND:rk3308 = "generate_rk3308_loader_image"
+PER_CHIP_IMG_GENERATION_COMMAND:rk3328 = "generate_rk3328_loader_image"
+PER_CHIP_IMG_GENERATION_COMMAND:rk3399 = "generate_rk3399_loader_image"
+PER_CHIP_IMG_GENERATION_COMMAND:rk3399pro = "generate_rk3399pro_loader_image"
+PER_CHIP_IMG_GENERATION_COMMAND:rk3566 = "generate_rk3566_loader_image"
+PER_CHIP_IMG_GENERATION_COMMAND:rk3568 = "generate_rk3568_loader_image"
 
-IMAGE_CMD_rockchip-radxa-gpt-img () {
+IMAGE_CMD:rockchip-radxa-gpt-img () {
 	# Change to image directory
 	cd ${DEPLOY_DIR_IMAGE}
 

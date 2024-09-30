@@ -168,7 +168,7 @@ for f in Makefile_32.cpu kernel/asm-offsets.s; do
 done
 
 # Address sources with this kind of hacks
-# https://github.com/raspberrypi/linux/commit/a66649dab35033bd67988670fa60c268b0444cda
+# git://github.com/raspberrypi/linux/commit/a66649dab35033bd67988670fa60c268b0444cda
 mkdir -p "$target_karch_dir/kernel/vdso"
 for f in gettimeofday.S note.S sigreturn.S; do
 	p="$karch_dir//kernel/vdso/$f"

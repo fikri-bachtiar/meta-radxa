@@ -3,11 +3,16 @@
 SUMMARY = "Rockchip WIFI/BT firmware files"
 SECTION = "kernel"
 
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://NOTICE;md5=9645f39e9db895a4aa6e02cb57294595"
+# LICENSE = "Apache-2.0"
+# LIC_FILES:CHKSUM = "file://NOTICE;md5=9645f39e9db895a4aa6e02cb57294595"
+
+LICENSE = "GPL-2.0-only"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171dd6425610833a22dbe6"
 
 SRCREV = "3277c78514fce8964c25172a5e8c7102bd0c17f6"
-SRC_URI = "git://github.com/radxa/rkwifibt.git;protocol=https"
+SRC_URI = "git://github.com/radxa/rkwifibt;protocol=https;branch=master"
+
+SRC_URI[sha256sum] = "c61fb870c28605516dbb2f053e6d2ee7cd8a660bbb1405bc3a19730e01d7040b"
 
 S = "${WORKDIR}/git"
 
@@ -61,76 +66,76 @@ PACKAGES =+ " \
 	${PN}-rtl8821cu-bt \
 "
 
-FILES_${PN}-ap6212a1-wifi = " \
+FILES:${PN}-ap6212a1-wifi = " \
 	lib/firmware/brcm/brcmfmac43430-sdio* \
 "
 
-FILES_${PN}-ap6212a1-bt = " \
+FILES:${PN}-ap6212a1-bt = " \
 	lib/firmware/brcm/bcm43438a1.hcd \
 "
 
-FILES_${PN}-ap6236-wifi = " \
+FILES:${PN}-ap6236-wifi = " \
 	lib/firmware/brcm/fw_bcm43436b0.bin \
 	lib/firmware/brcm/nvram_ap6236.txt \
 "
 
-FILES_${PN}-ap6236-bt = " \
+FILES:${PN}-ap6236-bt = " \
 	lib/firmware/brcm/BCM4343B0.hcd \
 "
 
-FILES_${PN}-ap6255-wifi = " \
+FILES:${PN}-ap6255-wifi = " \
 	lib/firmware/brcm/fw_bcm43455c0_ag.bin \
 	lib/firmware/brcm/fw_bcm43455c0_ag_p2p.bin \
 	lib/firmware/brcm/nvram_ap6255.txt \
 "
 
-FILES_${PN}-ap6255-bt = " \
+FILES:${PN}-ap6255-bt = " \
 	lib/firmware/brcm/BCM4345C0.hcd \
 "
 
-FILES_${PN}-ap6256-wifi = " \
+FILES:${PN}-ap6256-wifi = " \
 	lib/firmware/brcm/brcmfmac43456-sdio* \
 "
 
-FILES_${PN}-ap6256-bt = " \
+FILES:${PN}-ap6256-bt = " \
 	lib/firmware/brcm/BCM4345C5.hcd \
 "
 
-FILES_${PN}-ap6356-wifi = " \
+FILES:${PN}-ap6356-wifi = " \
 	lib/firmware/brcm/fw_bcm4356a2_ag.bin \
 	lib/firmware/brcm/nvram_ap6356.txt \
 "
 
-FILES_${PN}-ap6356-bt = " \
+FILES:${PN}-ap6356-bt = " \
 	lib/firmware/brcm/BCM4356A2.hcd \
 "
 
-FILES_${PN}-ap6398s-wifi = " \
+FILES:${PN}-ap6398s-wifi = " \
 	lib/firmware/brcm/fw_bcm4359c0_ag.bin \
 	lib/firmware/brcm/fw_bcm4359c0_ag_p2p.bin \
 	lib/firmware/brcm/nvram_ap6398s.txt \
 "
 
-FILES_${PN}-ap6398s-bt = " \
+FILES:${PN}-ap6398s-bt = " \
 	lib/firmware/brcm/BCM4359C0.hcd \
 "
 
-FILES_${PN}-rtl8723ds-bt = " \
+FILES:${PN}-rtl8723ds-bt = " \
 	${base_libdir}/firmware/rtlbt/rtl8723d_config \
 	${base_libdir}/firmware/rtlbt/rtl8723d_fw \
 "
 
-FILES_${PN}-rtl8723du-bt = " \
+FILES:${PN}-rtl8723du-bt = " \
 	${base_libdir}/firmware/rtl8723du_config \
 	${base_libdir}/firmware/rtl8723du_fw \
 "
 
-FILES_${PN}-rtl8821cu-bt = " \
+FILES:${PN}-rtl8821cu-bt = " \
 	${base_libdir}/firmware/rtl8821cu_config \
 	${base_libdir}/firmware/rtl8821cu_fw \
 "
 
-FILES_${PN} = "*"
+FILES:${PN} = "*"
 
 # Make it depend on all of the split-out packages.
 python () {
