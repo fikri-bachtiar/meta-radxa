@@ -27,7 +27,6 @@ PV = "${LINUX_VERSION}"
 # Include only supported boards for now
 COMPATIBLE_MACHINE = "(rk3036|rk3066|rk3288|rk3328|rk3399|rk3308)"
 deltask kernel_configme
-deltask kernel_configcheck
 
 do_compile:append() {
 	oe_runmake dtbs
@@ -40,8 +39,15 @@ do_patch:append() {
 	done
 }
 
-# modify the source cause no folder standard-build
 do_deploy:append() {
-	install -d ${DEPLOYDIR}/overlays
-	install -m 644 ${WORKDIR}/linux-rockpi-s-4.4.143/arch/arm64/boot/dts/rockchip/overlay/* ${DEPLOYDIR}/overlays
+    install -d ${DEPLOYDIR}/overlays
+    # Check if the first overlay directory exists
+    if [ -d "${WORKDIR}/linux-rockpi_s_rk3308-standard-build/arch/arm64/boot/dts/rockchip/overlay/" ]; then
+        install -m 644 ${WORKDIR}/linux-rockpi_s_rk3308-standard-build/arch/arm64/boot/dts/rockchip/overlay/* ${DEPLOYDIR}/overlays
+    # Check if the second overlay directory exists
+    elif [ -d "${WORKDIR}/linux-rockpi-s-4.4.143/arch/arm64/boot/dts/rockchip/overlay/" ]; then
+        install -m 644 ${WORKDIR}/linux-rockpi-s-4.4.143/arch/arm64/boot/dts/rockchip/overlay/* ${DEPLOYDIR}/overlays
+    else
+        echo "Neither overlay directory exists."
+    fi
 }
